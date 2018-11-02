@@ -1,0 +1,47 @@
+<!--
+  Generated template for the FitnessProgramPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>High Intensity Exercises</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <img class = "fitnessImages" src="/assets/imgs/7minWorkout.gif" style="width:300px;margin:auto"/>
+        <ion-card-content>
+          <ion-card-title>
+           High Intensity Fitness Workout
+            </ion-card-title>
+          <p>
+            A fitness program scientiffically proven to assist weight loss and improve cardiovascular function. Consist of 12 different bodyweight exercises only 20 minutes a day.
+          </p>
+          <button ion-button full color="secondary" (click)="toStartExercise($event, item)">Start Exercise</button>
+          <button ion-button full color="secondary" (click)="toFitnessInstructions($event, item)">Instructions</button>   
+          <button ion-button full color="secondary" (click)="toCalendar($event, item)">View Calendar</button>     
+        </ion-card-content>
+      </ion-card>
+    <ion-list>
+      <button ion-item *ngFor="let item of items" (click)="toCalendar($event, item)">
+        <ion-icon name="{{item.icon}}" item-left></ion-icon>
+        {{item.title}}
+        <div class="item-note" item-right>
+          {{item.note}}
+        </div>
+      </button>
+    </ion-list>
+
+    
+<!--
+    
+   --> 
+  </ion-content>
+
+  

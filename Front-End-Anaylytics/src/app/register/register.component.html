@@ -1,0 +1,38 @@
+<div class="register">
+  <form class="ui form" #registerForm='ngForm' (ngSubmit)='submit()'>
+    <h2>Register</h2>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="username" placeholder="Email" [(ngModel)]='registerFormData.email' required>
+    </div>
+
+    <div class="field">
+      <label>First Name</label>
+      <input type="text" name="firstName" placeholder="First Name" [(ngModel)]='registerFormData.firstName' required>
+    </div>
+
+    <div class="field">
+      <label>Last Name</label>
+      <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]='registerFormData.lastName' required>
+    </div>
+
+    <div class="field">
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="Phone" [(ngModel)]='registerFormData.phone' required>
+    </div>
+    
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Password" [(ngModel)]='registerFormData.password' required>
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="confirmPassword" placeholder="Confirm Password"
+             [(ngModel)]='registerFormData.confirmPassword' required>
+    </div>
+    
+    <button class="ui button" type="submit"
+            [disabled]='!registerForm.valid || registerFormData.password != registerFormData.confirmPassword'>Submit</button>
+  </form>
+</div>

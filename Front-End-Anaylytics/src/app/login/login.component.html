@@ -1,0 +1,18 @@
+
+<div class="login">
+  <form class="ui form" #loginForm='ngForm' (ngSubmit)='submit()'>
+    <h2>Login</h2>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="username" placeholder="Email" [(ngModel)]='loginData.email' required>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Password" [(ngModel)]='loginData.password' required>
+    </div>
+    <button class="ui button" type="submit" [disabled]='!loginForm.valid'>Submit</button>
+  </form>
+  <div class="register-redirect">
+    <a href="javascript:void(0)" (click)="goToRegister()">Register</a>
+  </div>
+</div>

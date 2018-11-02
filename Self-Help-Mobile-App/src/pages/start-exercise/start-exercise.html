@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Start Exercise</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        Countdown timer
+      </ion-card-title>
+      <p>
+        Select an exercise and start the timer.
+        An exercise is complete as soon as the timer reaches zero.
+        Complete each exercise each day and see how long your streak lasts.
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label>Exercise List</ion-label>
+      <br>
+
+      <ion-select [(ngModel)]="selectExercise">
+        <ion-option *ngFor="let exercise of exercises"
+                    [value]="exercise">{{exercise.displayName}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div class="timer" [ngClass]="{'disabled': !selectExercise}">
+    <div align="center">
+      <h2>
+        <ion-label>{{countDownTimer | async | formatTime}}</ion-label>
+      </h2>
+    </div>
+    <button ion-button full color="secondary" (click)="start()" *ngIf="!activated">Start</button>
+    <button ion-button full color="secondary" (click)="resume()" *ngIf="!myService.timerSwitch && activated">Resume
+    </button>
+    <button ion-button full color="secondary" (click)="pauseTimer()" *ngIf="activated && myService.timerSwitch">Pause
+    </button>
+    <button ion-button full color="secondary" (click)="resetTimer()" [disabled]="!activated">Reset</button>
+  </div>
+
+  <img class="fitnessImages" src="/assets/imgs/7minWorkout.gif" style="width:300px;margin:auto"/>
+</ion-content>
